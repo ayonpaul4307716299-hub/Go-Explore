@@ -10,6 +10,7 @@ import Home from './pages/Home.jsx';
 import PublicLayout from './layout/publicLayout.jsx';
 import About from './pages/About.jsx';
 import Explor from './pages/Explor.jsx';
+import Login from './pages/Login.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
          path: "/explor",
         element:<Explor/>,
+      },
+      {
+         path: "/login",
+        element:<Login/>
       }
     ]
   },
