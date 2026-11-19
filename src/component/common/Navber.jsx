@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Compass, Menu, X, ArrowRight } from 'lucide-react';
 
 export default function Navbar() {
@@ -10,52 +11,52 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           
           {/* Logo / Brand */}
-          <a href="/" className="flex items-center gap-2.5 group">
+          <Link to="/" className="flex items-center gap-2.5 group">
             <div className="p-2.5 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 text-slate-950 shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
               <Compass className="w-5 h-5 stroke-[2.5]" />
             </div>
             <span className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
               Go <span className="text-emerald-400">Explor</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="relative text-sm font-medium text-emerald-400 transition-colors py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-0.5 after:bg-emerald-400 after:rounded-full"
             >
               Home
-            </a>
-            <a
-              href="/about"
+            </Link>
+            <Link
+              to="/about"
               className="relative text-sm font-medium text-slate-300 hover:text-white transition-colors py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-emerald-400 after:rounded-full after:transition-all"
             >
               About
-            </a>
-            <a
-              href="/Explor"
+            </Link>
+            <Link
+              to="/Explor"
               className="relative text-sm font-medium text-slate-300 hover:text-white transition-colors py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-emerald-400 after:rounded-full after:transition-all"
             >
               Explor
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-4">
-            <a
-              href="/login"
+            <Link
+              to="/login"
               className="px-5 py-2.5 text-sm font-semibold text-white bg-white/5 hover:bg-white/10 border border-white/15 rounded-xl transition-all"
             >
               Login
-            </a>
-            <a
-              href="/Explor"
+            </Link>
+            <Link
+              to="/Explor"
               className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 rounded-xl shadow-lg shadow-indigo-600/30 transition-all hover:-translate-y-0.5"
             >
               <span>Book Now</span>
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -73,40 +74,45 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-[#0F172A]/95 backdrop-blur-xl border-b border-white/10 px-4 pt-4 pb-6 space-y-3 animate-fadeIn">
-          <a
-            href="/"
+        <div className="md:hidden bg-[#0F172A]/95 backdrop-blur-xl border-b border-white/10 px-4 pt-4 pb-6 space-y-3">
+          <Link
+            to="/"
+            onClick={() => setIsOpen(false)}
             className="block px-4 py-3 rounded-xl text-base font-semibold text-emerald-400 bg-emerald-500/10"
           >
             Home
-          </a>
-          <a
-            href="/about"
+          </Link>
+          <Link
+            to="/about"
+            onClick={() => setIsOpen(false)}
             className="block px-4 py-3 rounded-xl text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
           >
             About
-          </a>
-          <a
-            href="/Explor"
+          </Link>
+          <Link
+            to="/Explor"
+            onClick={() => setIsOpen(false)}
             className="block px-4 py-3 rounded-xl text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
           >
-            GearGuide
-          </a>
+            Explor
+          </Link>
           
           <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
-            <a
-              href="/login"
+            <Link
+              to="/login"
+              onClick={() => setIsOpen(false)}
               className="w-full text-center py-3 text-sm font-semibold text-white bg-white/5 border border-white/15 rounded-xl transition-all"
             >
               Login
-            </a>
-            <a
-              href="/Explor"
+            </Link>
+            <Link
+              to="/Explor"
+              onClick={() => setIsOpen(false)}
               className="w-full flex items-center justify-center gap-2 py-3 text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-blue-600 rounded-xl shadow-lg shadow-indigo-600/30 transition-all"
             >
               <span>Book Now</span>
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
         </div>
       )}
